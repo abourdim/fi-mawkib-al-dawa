@@ -385,3 +385,4 @@ body.reading-mode .reading-exit{position:fixed;top:16px;right:16px;z-index:9999;
 .narrator-toggles{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .narrator-toggle{display:flex;align-items:center;gap:4px;font-size:.78rem;color:var(--t2);cursor:pointer}
 .narrator-toggle input{accent-color:var(--primary)}
+.narrator-panel *{color:#eee!important}.narrator-panel select{background:#1a1a2e!important;color:#eee!important;border-color:rgba(255,255,255,.2)!important}.narrator-panel .narrator-title{color:#ffcc80!important}.narrator-panel .narrator-mode-btn{color:#eee!important;background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.15)!important}.narrator-panel .narrator-mode-btn:hover{background:rgba(255,255,255,.15)!important}.narrator-panel input[type=range]{accent-color:#ffcc80}
