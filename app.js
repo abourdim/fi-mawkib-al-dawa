@@ -548,14 +548,14 @@ function renderHome() {
   const dayIdx = new Date().getDate() % LESSONS.length;
   const lesson = LESSONS[dayIdx];
   const ld = lesson[lang];
-  document.getElementById('dailyCard').innerHTML = `
+  (document.getElementById('dailyCard')||{}).innerHTML= `
     <div class="daily-label">${t.dailyLabel}</div>
     <div class="daily-title">${ld.title}</div>
     <div class="daily-body">${ld.desc}</div>
     <div class="daily-action" onclick="document.querySelector('[data-tab=lessons]').click()">${t.tabLessons} &#8594;</div>
   `;
   // XP bar
-  document.getElementById('xpSection').innerHTML = `
+  (document.getElementById('xpSection')||{}).innerHTML= `
     <div class="xp-bar-wrap">
       <div class="xp-label">${t.xpLabel}: <strong id="xpDisplay">${getXP()}</strong></div>
       <div class="xp-bar"><div class="xp-fill" id="xpBar" style="width:${getXP()%100}%"></div></div>
@@ -569,7 +569,7 @@ function renderHome() {
     {icon:'🧠',tab:'quiz',title:t.tabQuiz,desc:lang==='ar'?'اختبر معلوماتك':lang==='fr'?'Testez-vous':'Test yourself'},
     {icon:'📖',tab:'about',title:t.tabAbout,desc:lang==='ar'?'عن الكتاب والمؤلف':lang==='fr'?'Le livre et l\'auteur':'Book & author'},
   ];
-  document.getElementById('homeGrid').innerHTML = sections.map(s => `
+  (document.getElementById('homeGrid')||{}).innerHTML= sections.map(s => `
     <div class="home-card" onclick="document.querySelector('[data-tab=${s.tab}]').click()">
       <span class="hc-icon">${s.icon}</span>
       <div class="hc-title">${s.title}</div>
@@ -610,7 +610,7 @@ function renderLessons() {
       </div>
     </div>`;
   }).join('');
-  document.getElementById('lessonsContainer').innerHTML = searchBar + cards;
+  (document.getElementById('lessonsContainer')||{}).innerHTML= searchBar + cards;
 }
 
 function filterLessons(query) {
@@ -635,7 +635,7 @@ async function shareLesson(idx) {
 
 // ═══════════════ RENDER: TIMELINE ═══════════════
 function renderTimeline() {
-  document.getElementById('timelineContainer').innerHTML = TIMELINE.map(t => {
+  (document.getElementById('timelineContainer')||{}).innerHTML= TIMELINE.map(t => {
     const d = t[lang];
     return `
     <div class="timeline-item scroll-reveal">
@@ -657,7 +657,7 @@ let quizState = { qIndex:0, score:0, answered:false, lifelines:{fifty:true,hint:
 function renderQuiz() {
   const t = T[lang];
   quizState = { qIndex:0, score:0, answered:false, lifelines:{fifty:true,hint:true,sheikh:true}, shuffledOptions:[] };
-  document.getElementById('quizContainer').innerHTML = `
+  (document.getElementById('quizContainer')||{}).innerHTML= `
     <div class="quiz-start-screen">
       <div class="quiz-start-icon">🎓</div>
       <div class="quiz-start-title">${t.quizTitle}</div>
@@ -695,7 +695,7 @@ function renderQuizQuestion() {
       <button class="lifeline-btn ${quizState.lifelines.sheikh?'':'used'}" onclick="useSheikh()" ${quizState.lifelines.sheikh?'':'disabled'}>${t.quizLifelineSheikh}</button>
     </div>`;
 
-  document.getElementById('quizContainer').innerHTML = `
+  (document.getElementById('quizContainer')||{}).innerHTML= `
     <div class="quiz-progress">${quizState.qIndex + 1} / ${QUIZ_DATA.length}</div>
     <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(quizState.qIndex/QUIZ_DATA.length)*100}%"></div></div>
     ${lifelinesHTML}
@@ -780,7 +780,7 @@ function finishQuiz() {
     <div class="qr-desc">${desc}</div>
     <button class="quiz-submit" onclick="renderQuiz()" style="margin-top:16px">${t.quizAgain}</button>
   `;
-  document.getElementById('quizContainer').innerHTML = '';
+  (document.getElementById('quizContainer')||{}).innerHTML= '';
   result.scrollIntoView({ behavior: 'smooth' });
   if (pct >= 80) launchConfetti();
   playSound('success');
@@ -872,7 +872,7 @@ function renderAbout() {
     }
   };
   const a = about[lang];
-  document.getElementById('aboutContainer').innerHTML = `
+  (document.getElementById('aboutContainer')||{}).innerHTML= `
     <div class="about-disclaimer">
       <div class="about-disclaimer-title">${a.disclaimerTitle}</div>
       <p>${a.disclaimer}</p>
@@ -924,7 +924,7 @@ function renderHelp() {
       {title:'🤝 Contribuer',body:'GitHub : github.com/abourdim/fi-mawkib-al-dawa'},
     ]
   };
-  document.getElementById('helpBody').innerHTML = help[lang].map(h => `
+  (document.getElementById('helpBody')||{}).innerHTML= help[lang].map(h => `
     <div class="help-item">
       <div class="help-item-title">${h.title}</div>
       <div>${h.body}</div>
@@ -934,7 +934,7 @@ function renderHelp() {
 
 // ═══════════════ RENDER: DUAS ═══════════════
 function renderDuas() {
-  document.getElementById('duaPanelContent').innerHTML = DUAS.map(d => {
+  (document.getElementById('duaPanelContent')||{}).innerHTML= DUAS.map(d => {
     const dd = d[lang];
     return `
     <div class="dua-item">
