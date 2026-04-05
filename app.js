@@ -374,8 +374,10 @@ function addXP(pts) {
 }
 function updateXPDisplay() {
   const el = document.getElementById('xpDisplay');
+  if (!el) return;
   if (el) el.textContent = getXP();
   const bar = document.getElementById('xpBar');
+  if (!bar) return;
   if (bar) {
     const level = Math.floor(getXP() / 100);
     const pct = (getXP() % 100);
@@ -466,7 +468,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSplash() {
   let count = 5;
   const el = document.getElementById('splashCount');
+  if (!el) return;
   const featuresEl = document.getElementById('splashFeatures');
+  if (!featuresEl) return;
   if (featuresEl) {
     featuresEl.innerHTML = T[lang].splashFeatures.map((f, i) =>
       `<div class="splash-feature" style="animation-delay:${0.3 + i * 0.3}s">${f}</div>`
@@ -480,6 +484,7 @@ function initSplash() {
 }
 function dismissSplash() {
   const s = document.getElementById('splash');
+  if (!s) return;
   if (s) { s.classList.add('hidden'); setTimeout(() => s.style.display = 'none', 500); }
   playSound('click');
 }
@@ -504,6 +509,7 @@ function setLang(l) {
   set('helpTitle', t.helpTitle); set('duaPanelTitle', t.duaPanelTitle);
   renderHome(); renderLessons(); renderTimeline(); renderQuiz(); renderAbout(); renderHelp(); renderDuas();
   const featuresEl = document.getElementById('splashFeatures');
+  if (!featuresEl) return;
   if (featuresEl) {
     featuresEl.innerHTML = T[l].splashFeatures.map((f, i) =>
       `<div class="splash-feature" style="animation-delay:${0.3 + i * 0.3}s">${f}</div>`
@@ -518,6 +524,7 @@ function setTheme(t) {
   localStorage.setItem(LS_PREFIX + 'theme', t);
   const idx = themes.indexOf(t);
   const el = document.getElementById('themeIcon');
+  if (!el) return;
   if (el) el.textContent = themeIcons[idx];
 }
 function cycleTheme() {
@@ -772,6 +779,7 @@ function finishQuiz() {
   }
 
   const result = document.getElementById('quizResult');
+  if (!result) return;
   result.classList.remove('hidden');
   result.innerHTML = `
     <div class="qr-emoji">${emoji}</div>
@@ -822,6 +830,7 @@ function useSheikh() {
   quizState.lifelines.sheikh = false;
   const qd = QUIZ_DATA[quizState.qIndex][lang];
   const hintBox = document.getElementById('quizHintBox');
+  if (!hintBox) return;
   if (hintBox) {
     hintBox.classList.remove('hidden');
     hintBox.innerHTML = `<div class="hint-content">📖 ${qd.hint}</div>`;
@@ -985,13 +994,16 @@ function initKeyboardNav() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const hp = document.getElementById('helpPanel');
+      if (!hp) return;
       if (!hp.classList.contains('hidden')) { toggleHelp(); return; }
       const dp = document.getElementById('duaPanel');
+      if (!dp) return;
       if (!dp.classList.contains('hidden')) { toggleDuaPanel(); return; }
       document.querySelectorAll('.lesson-card.open').forEach(c => c.classList.remove('open'));
     }
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       const panel = document.getElementById('panel-lessons');
+      if (!panel) return;
       if (!panel || !panel.classList.contains('active')) return;
       if (document.activeElement && document.activeElement.id === 'lessonsSearch') return;
       e.preventDefault();
