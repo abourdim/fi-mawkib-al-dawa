@@ -159,7 +159,7 @@ const T = {
 const LESSONS = [
   {
     id:1, emoji:'📢',
-    ar:{title:'الدعوة قبل كل شيء',desc:'الدعوة إلى الله ليست وظيفة رجال الدين فقط، بل هي واجب كل مسلم. من صمت عن الحق فهو شيطان أخرس.',verse:'وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا',verseRef:'فصلت ٤١: ٣٣',reflection:'هل دعوت أحداً إلى الخير هذا الأسبوع؟'},
+    ar:{title:'موكب الدعوة عبر الأجيال',desc:'مجموعة مقالات من أوائل الخمسينات — يغطي حرب فلسطين، فدائيي القناة، خلع فاروق، واغتيال الإمام حسن البنا. يرى الغزالي الدعوة موكباً مستمراً عبر التاريخ — كل جيل يرفع الراية. الدعوة واجب كل مسلم، لا وظيفة رجال الدين.',verse:'وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا',verseRef:'فصلت ٤١: ٣٣',reflection:'هل دعوت أحداً إلى الخير هذا الأسبوع؟'},
     en:{title:'Dawah Before All Else',desc:'Calling people to God is not the job of clergy alone — it is the duty of every Muslim. Whoever is silent about truth is a mute devil.',verse:'And who is better in speech than one who invites to Allah and does righteousness',verseRef:'Fussilat 41:33',reflection:'Have you invited someone to goodness this week?'},
     fr:{title:'La Predication Avant Tout',desc:'Appeler les gens vers Dieu n\'est pas le travail des seuls religieux — c\'est le devoir de chaque musulman. Celui qui se tait face a la verite est un diable muet.',verse:'Qui profere plus belle parole que celui qui appelle a Dieu et fait le bien',verseRef:'Fussilat 41:33',reflection:'Avez-vous invite quelqu\'un au bien cette semaine ?'}
   },
